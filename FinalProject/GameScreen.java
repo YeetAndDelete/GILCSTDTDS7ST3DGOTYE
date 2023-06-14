@@ -19,5 +19,6 @@ public class GameScreen extends World
         super(1000, 800, 1); 
         addObject (new Latex(),400,800);
         addObject (new Menu(),929,176);
+        addObject (new Arrow(),960,331);
     }
 }
