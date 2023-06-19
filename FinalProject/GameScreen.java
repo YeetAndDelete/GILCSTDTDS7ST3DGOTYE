@@ -20,5 +20,6 @@ public class GameScreen extends World
         addObject (new Latex(),400,800);
         addObject (new Menu(),929,176);
         addObject (new Arrow(),960,331);
+
     }
 }

@@ -8,4 +8,5 @@ class.Menu.image=menu.jpg
 class.MainMenu.image=start.jpg
 class.Menu.image=menu.jpg
 class.Monkey.image=pistolgorilla.png
+class.Spawn.image=pistolgorilla.png
 class.StartButton.image=222.png
