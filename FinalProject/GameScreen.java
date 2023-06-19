@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -8,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameScreen extends World
 {
+    HealthBar healthBar = new HealthBar();
+    public HealthBar getHealthBar(){
+        return healthBar;
+    }
 
     /**
      * Constructor for objects of class GameScreen.
@@ -19,5 +24,6 @@ public class GameScreen extends World
         super(1000, 800, 1); 
         addObject (new Latex(),400,800);
         addObject (new Menu(),929,176);
+        addObject (healthBar,669,15);
     }
 }
