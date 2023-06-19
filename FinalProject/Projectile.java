@@ -1,26 +1,26 @@
 import greenfoot.*;
 
 public class Projectile extends Actor {
+    private int speed = 5; // Adjust the speed as needed
     private Actor target;
-    private int speed;
 
     public Projectile(Actor target) {
         this.target = target;
-        this.speed = 5; // Adjust the speed as needed
     }
 
     public void act() {
         if (target != null) {
             turnTowards(target.getX(), target.getY());
             move(speed);
-            
-            // Check if the projectile has reached the target
-            if (intersects(target)) {
-                getWorld().removeObject(this);
-                
-            }
+            checkCollision();
         } else {
-            // If the target is null, remove the projectile from the world
+            getWorld().removeObject(this);
+        }
+    }
+
+    private void checkCollision() {
+        if (isTouching(Latex.class)) {
+            removeTouching(Latex.class);
             getWorld().removeObject(this);
         }
     }

@@ -1,19 +1,33 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
+import java.util.List;
 
-/**
- * Write a description of class Monkey here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Monkey extends Actor
-{
-    /**
-     * Act - do whatever the Monkey wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+
+public class Monkey extends Actor {
+    private GreenfootImage image; // Customize the appearance of the actor
+    private int reloadTime = 60; // Adjust the reload time (in frames) as needed
+    private int reloadCountdown = reloadTime;
+
+    public Monkey() {
+        image = getImage();
     }
+
+    public void act() {
+        if (reloadCountdown > 0) {
+            reloadCountdown--;
+        } else {
+            shootProjectile();
+            reloadCountdown = reloadTime;
+        }
+    }
+
+    private void shootProjectile() {
+    List<Latex> latexList = getWorld().getObjects(Latex.class);
+    if (!latexList.isEmpty()) {
+        Latex target = latexList.get(0);
+        Projectile projectile = new Projectile(target);
+        getWorld().addObject(projectile, getX(), getY());
+        projectile.setRotation(getRotation());
+    }
+}
+
 }
